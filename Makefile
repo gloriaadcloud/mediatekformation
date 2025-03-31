@@ -1,5 +1,4 @@
-server := "gehu1211@epinoche.o2switch.net"
-domain := "mediatekformation"
+
 
 .PHONY: install deploy
 
