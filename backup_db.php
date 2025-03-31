@@ -1,9 +1,9 @@
 <?php
 // Configuration de la base de données
 $dbHost = "localhost";  // O2switch utilise souvent "localhost"
-$dbUser = "gehu1211_barry";
-$dbPass = "gehu1211_password";
-$dbName = "gehu1211_mediatekformation";
+$dbUser = "adgl8886_gloria";
+$dbPass = "Foligloria7@";
+$dbName = "adgl8886_mediatekformation";
 
 // Chemin de sauvegarde
 $backupDir = "/public_html/mediatekformation/backups/";
@@ -13,7 +13,7 @@ if (!file_exists($backupDir)) {
 
 // Nom du fichier avec la date
 $date = date("Y-m-d");
-$backupFile = "/home/gehu1211/public_html/mediatekformation/backups/backup_{$dbName}_{$date}.sql";
+$backupFile = "/home/adgl8886/public_html/mediatekformation/backups/backup_{$dbName}_{$date}.sql";
 
 // Commande mysqldump avec compression gzip
 $dumpCommand = "mysqldump -h $dbHost -u $dbUser -p'$dbPass' $dbName  > $backupFile";
