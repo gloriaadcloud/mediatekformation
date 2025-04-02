@@ -75,6 +75,8 @@ class FormationRepositoryTest extends KernelTestCase
         $this->assertEquals($video_id, $retrieved[0]->getVideoId());
         $this->assertNotNull($retrieved[0]->getPlaylist());
     }
+    
+
 
     public function testUpdateFormation(): void
     {

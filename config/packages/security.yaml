@@ -23,7 +23,7 @@ security:
                 default_target_path: /
             logout:
                 path: logout
-                target: login
+                target: /
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -36,9 +36,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/formations, roles: ROLE_USER }
-        - { path: ^/categories, roles: ROLE_USER }
-        - { path: ^/playlists, roles: ROLE_USER }
+        
         - { path: ^/logout, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
 when@test:

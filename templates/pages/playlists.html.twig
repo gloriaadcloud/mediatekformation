@@ -41,8 +41,13 @@
                             <input type="hidden" name="_token" value="{{ csrf_token('filtre_name') }}">
                             <button type="submit" class="btn btn-info mb-2 btn-sm">filtrer</button>
                         </div>
-                    </form>  
-                            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#ajouterPlaylistModal">Ajouter une playlist</button>
+                    </form>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#ajouterPlaylistModal">Ajouter une playlist</button>
+
+                    {% endif %}
+ 
+                            
                 </th>
                 <th class="text-left align-top" scope="col">
                     catégories
@@ -86,14 +91,15 @@
                             {% set categories = playlist.categoriesplaylist %}
                             {% if categories|length > 0  %}
                                 {% for categorie in categories %}
-                                    &nbsp;{{ categorie }}                                  
+                                    &nbsp;{{ categorie }}
                                 {% endfor %}
                             {% endif %}
-                        </td>            					
+                        </td>		
                         <td class="text-center">
                             {{ playlist.formations|length }}
                         </td>
-                        <td class="text-center">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                         <td class="text-center">
                             <a href="{{ path('playlists.showone', {id:playlist.id}) }}" class="btn btn-secondary">Voir détail</a>
                             <button class="btn btn-warning btn-sm" 
                                 data-bs-toggle="modal" 
@@ -107,14 +113,23 @@
                             <input type="hidden" name="id" value="{{  playlist.id }}">
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                         </form>
-                        </td> 					
+                        </td> 	
+                        {% else %}
+                            <td class="text-center">
+                            <a href="{{ path('playlists.showone', {id:playlist.id}) }}" class="btn btn-secondary">Voir détail</a>
+                            
+
+                        
+                        </td> 	
+                    {% endif %}
+                       				
                     </tr>
                 {% endfor %}	
             
         </tbody>
     </table>
                 
-                    <div class="modal fade" id="modifierPlaylistModal" tabindex="-1" aria-labelledby="modifierPlaylistModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modifierPlaylistModal" tabindex="-1" aria-labelledby="modifierPlaylistModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -134,7 +149,7 @@
                             <label class="form-label">Description</label>
                             <input type="text" class="form-control" id="editDescription" name="description" required>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </form>
                 </div>

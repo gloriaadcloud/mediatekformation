@@ -106,8 +106,8 @@ Le chemin des images (des 2 tailles) n'est pas mémorisé dans la BDD car il peu
     php bin/console doctrine:migrations:migrate --env=test
     php bin/console doctrine:migrations:migrate
 - Ouvrir votre phpMyAdmin pour voir si tout est correct
-- Si c'est le cas maintenant voici la logique pour run les testUnitaire.
+- Si c'est le cas, maintenant voici la logique pour run les testUnitaire.
 - Vider chaque table de votre base de donnée pour que chaque table soit vide.
-- Ouvrez le dossier Test ouvrez le dossier entity et ouvrez le fichier formation dans le fichier fait un clik droit et faite run file
+- Ouvrez le dossier Test ouvrez le dossier entity et ouvrez le fichier formation. Dans le fichier, faites un clik droit et faite run file
 - Ouvrez le dossier Test ensuite et ouvrez le dossier Repository et vous lancer le test d'abord sur le fichier categorieRepositoryTest et ensuite vous lancer le test sur PlaylistRepositoryTest et vous finissez avec le FormationRepositoryTest
-- Ouvrez ensuite le dossier Fonctionnel et lancer le test du fichier qui est dedans
+- Ouvrez ensuite le dossier Fonctionnel et lancer le test du fichier qui est dedans.

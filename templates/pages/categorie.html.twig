@@ -36,8 +36,11 @@
                             <button type="submit" class="btn btn-info mb-2 btn-sm">filtrer</button>
                         </div>
                     </form>    
+                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#ajouterCategorieModal">Ajouter une categorie</button>
+
+                    {% endif %}
                             
-                            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#ajouterCategorieModal">Ajouter une categorie</button>
                 </th>
 
 
@@ -55,8 +58,8 @@
                             {{ categorie.name }}
                         </h5>
                     </td>                 
-
-                    <td class="text-center">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <td class="text-center">
                         <button class="btn btn-warning btn-sm" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#modifierCategorieModal"
@@ -69,7 +72,10 @@
                             <input type="hidden" name="id" value="{{  categorie.id }}">
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                         </form>
-                    </td> 					
+                    </td> 
+
+                    {% endif %}
+                    					
                 </tr>
             {% endfor %}	
 

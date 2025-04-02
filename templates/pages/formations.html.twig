@@ -81,8 +81,13 @@
                             <input type="hidden" name="_token" value="{{ csrf_token('filtre_title') }}">
                             <button type="submit" class="btn btn-info mb-2 btn-sm">filtrer</button>
                         </div>
-                    </form>   
-                    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#ajouterFormationModal">Ajouter une formation</button>
+                    </form>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#ajouterFormationModal">Ajouter une formation</button>
+
+                    {% endif %}
+ 
+                    
                 </th>
                 <th class="text-left align-top" scope="col">
                     playlist<br />
@@ -150,7 +155,8 @@
                             </a>
                         {% endif %}
                     </td>
-                    <td class="text-center">
+                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <td class="text-center">
                         <button class="btn btn-warning btn-sm" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#modifierFormationModal"
@@ -172,6 +178,8 @@
                         </form>
                     </td>
 
+                    {% endif %}
+ 
                 </tr>
             {% endfor %}
         </tbody>
