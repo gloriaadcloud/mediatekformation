@@ -10,7 +10,7 @@ security:
             memory:
                 users:
                     user:
-                        password: 'password'
+                        password: 'passwordglo'
                         roles: ['ROLE_USER']
     firewalls:
         dev:
